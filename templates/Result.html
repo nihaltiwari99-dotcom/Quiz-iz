@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESULT</title>
+<style>
+pre{
+color:white;font-style:serif;margin-left:20%;font-size:25px
+}
+button{
+font-size
+    }
+</style>
+<h1 style="font-family:serif; font-size:75px;text-align:center;margin-top:-10px;margin-left:280px ">Q U I Z-iz<h1>
+
+
+</head>
+<body style="background-image:url(/static/ques.jpg);background-size: 1580px 720px;background-repeat:no-repeat;">
+<div>
+  <h2 style="color:white;margin-left:40%;font-style:serif">Report Card </h2><br>
+  <pre>Question Attempted : {{ attempted }}</pre>
+  <pre>Correct Answers    : {{ correct }}</pre>
+  <pre>Question Incorrect : {{ incorrect }}</pre>
+  <pre>Marks Obtained     : {{ score }}</pre>
+
+  <div style="display:inline;margin-left:180px" >
+    <pre style="color:black;background-color:White;width:50%;margin-top:-39px">  Total Marks       :    {{ total }}</pre>
+    <pre style="color:black;margin-left:40px;background-color:White;margin-left:300px;width:50%">  Status            :    {{ status }}</pre>
+  </div>
+
+{% if status == "PASS" %}
+  <a href="/pdf">
+  <button type="submit" style="float:right;font-size:20px;font-weight:bold;margin-top:3%;margin-right:10px">Get Your Certificate 👈</button>
+  </a>
+{% endif %}
+</body>
+</html>

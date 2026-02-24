@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quiz</title>
+
+<style>
+.btn{
+    display:inline-block;
+    padding:15px 20px;
+    font-size:20px;
+    font-weight:bold;
+    text-decoration:none;
+    color:black;
+    background:white;
+    border-radius:8px;
+    transition:0.3s;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn:hover{
+    background:#f1f1f1;
+}
+</style>
+
+</head>
+
+<body style="background-image:url(/static/ques.jpg);background-size:1580px 720px;background-repeat:no-repeat;">
+
+<div class="timer" style="display:inline-block;font-size:48px;font-weight:bold;margin-top:5px;">
+Time Left: <span id="time">30</span> seconds
+</div>
+
+
+<a href="/result">
+<button type="submit"
+style="font-size:20px;font-weight:bold;float:right;padding:10px;margin-top:20px;margin-right:140px">
+END TEST
+</button>
+</a>
+
+
+<hr>
+
+<form id="quiz1" method="POST"
+style="color:white;font-family:serif;font-size:25px;margin-left:15%;margin-top:5%;">
+
+<h3>
+Question {{ q.id }}. {{ q.question }}
+</h3>
+
+<br>
+
+{% for option in q.options %}
+
+<label>
+{{ option }}
+<input type="radio" name="answer" value="{{ option }}">
+</label>
+
+<br><br>
+
+{% endfor %}
+
+<br>
+
+<button class="btn" type="submit">NEXT</button>
+
+</form>
+
+
+<script>
+
+let timeLeft = 30;
+let timer = document.getElementById("time");
+let form = document.getElementById("quiz1");
+
+let countdown = setInterval(() => {
+
+timeLeft--;
+timer.innerText = timeLeft;
+
+if(timeLeft <= 0){
+
+clearInterval(countdown);
+form.submit();
+
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>

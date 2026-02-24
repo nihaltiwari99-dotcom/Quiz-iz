@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+ <style>
+ form {
+    width: 360px;
+    padding: 28px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow:
+      0 0 25px rgba(255,255,255,0.15),
+      0 15px 40px rgba(0,0,0,0.35);
+    animation: float 4s ease-in-out infinite;
+    margin-left:37%
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+  }
+
+  legend {
+    text-align: center;
+    font-size:30px;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+  }
+
+  label {
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.25);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  input::placeholder {
+    color: rgba(255,255,255,0.7);
+  }
+
+  input:focus {
+    background: rgba(255,255,255,0.35);
+    color:black;
+    font-family:serif;
+    box-shadow: 0 0 12px rgba(255,255,255,0.6);
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 30px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #764ba2;
+    background: linear-gradient(90deg, #ffffff, #e0d9ff);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    transition: all 0.3s ease;
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+  }
+</style>
+</head>
+<body style="Background-image:url(/static/1.jpg);background-size: 1580px 780px;background-repeat:no-repeat">
+<footer style="background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow:
+      0 0 25px rgba(255,255,255,0.15),
+      0 15px 40px rgba(0,0,0,0.35);text-align:center;margin-top:50px%;Border:3px solid black;">© A Project By Nihal Tiwari</footer>
+<h1 style="font-family:serif; font-size:75px;text-align:center ">Q U I Z-iz<h1>
+    {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for msg in messages %}
+      <p style="color:Black;text-align:center;">{{ msg }}</p>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<form method="POST">
+  <fieldset>
+    <legend>Hi..... STUDENT<legend><br>
+    <label>User Name :</label>
+    <input type="text" name="user"><br>
+    <label>Password :</label>
+    <input type="password" name="pass">
+    <button type="submit">Take A Test</button>
+  </fieldset>
+</form>
+
+
+
+
+
+
+</body>
+
+</html>
